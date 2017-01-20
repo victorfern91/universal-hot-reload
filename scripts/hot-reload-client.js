@@ -4,7 +4,7 @@ function reload() {
     location.reload();
 }
 
-console.info("Universal-hot-reload plugin was loaded!")
+console.info('universal-hot-reload plugin was loaded!');
 
 socket.on('hot-reload', function(){
    reload();

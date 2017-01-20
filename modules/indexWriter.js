@@ -11,12 +11,16 @@ module.exports = class indexWriter {
     return this.indexContent;
   }
 
+  generateScriptTag (scriptPath) {
+    return `<script src="${scriptPath}"></script>\n`;
+  }
+
   addHotReloadScript () {
     this.indexContent = fs.readFileSync(this.path, 'utf8');
-    let socketIO = '<script src="/socket.io/socket.io.js"></script>\n',
-        script = socketIO + '<script src="/scripts/hot-reload-client.js"></script>\n',
+    let socketIO = this.generateScriptTag('/socket.io/socket.io.js'),
+        hotReloadScript = this.generateScriptTag('/scripts/hot-reload-client.js'),
         position = this.indexContent.indexOf('</body>');
 
-    this.indexContent = this.indexContent.substr(0, position) + script + this.indexContent.substr(position)
+    this.indexContent = this.indexContent.substr(0, position) + socketIO + hotReloadScript + this.indexContent.substr(position)
   }
 }

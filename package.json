@@ -1,15 +1,24 @@
 {
   "name": "universal-hot-reload",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/victorfern91/universal-hot-reload.git"
+  },
   "description": "",
-  "main": "index.js",
+  "main": "cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "bin": {
+    "hot-reload": "cli.js"
+  },
+  "author": "Victor Fernandes",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.14.0",
-    "socket.io": "^1.7.2"
+    "minimist": "^1.2.0",
+    "socket.io": "^1.7.2",
+    "watch": "^1.0.1"
   }
 }
